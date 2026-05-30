@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miami Magic — Connect. Grow. Thrive.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #080F1E;
+  --navy2: #0E1B33;
+  --coral: #FF4D35;
+  --coral2: #FF7A5C;
+  --teal: #00C9B1;
+  --gold: #FFD166;
+  --white: #FFFFFF;
+  --gray: #8A9BB0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: rgba(8,15,30,.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-logo .lm { color: var(--coral); }
+.nav-logo .ls { color: var(--gold); font-size: 1rem; }
+.nav-logo .lg { color: var(--teal); }
+.nav-logo .sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .65rem;
+  letter-spacing: 3px;
+  color: var(--gray);
+  text-transform: uppercase;
+  margin-left: 8px;
+  font-weight: 600;
+  border-left: 1px solid rgba(255,255,255,.15);
+  padding-left: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  color: rgba(255,255,255,.55);
+  text-decoration: none;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--coral), var(--coral2));
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: .85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 6px 20px rgba(255,77,53,.3);
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,77,53,.4); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 40px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0,201,177,.08) 0%, transparent 70%),
+              radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255,77,53,.06) 0%, transparent 60%);
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,201,177,.1);
+  border: 1px solid rgba(0,201,177,.25);
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 28px;
+  animation: fadeUp .8s .1s both;
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  line-height: .92;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  animation: fadeUp .8s .2s both;
+}
+.hero h1 .line1 { color: var(--white); display: block; }
+.hero h1 .line2 {
+  display: block;
+  background: linear-gradient(135deg, var(--coral), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(3rem, 8vw, 7rem);
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--gray);
+  max-width: 560px;
+  line-height: 1.7;
+  margin: 24px auto 44px;
+  animation: fadeUp .8s .3s both;
+  font-weight: 300;
+}
+.hero-sub strong { color: var(--white); font-weight: 600; }
+
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeUp .8s .4s both;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--coral), var(--coral2));
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-size: .95rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 30px rgba(255,77,53,.35);
+  transition: all .25s;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(255,77,53,.45); }
+
+.btn-secondary {
+  background: rgba(255,255,255,.06);
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-size: .95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.12);
+  transition: all .25s;
+  cursor: pointer;
+}
+.btn-secondary:hover { background: rgba(255,255,255,.1); transform: translateY(-3px); }
+
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  margin-top: 64px;
+  animation: fadeUp .8s .5s both;
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, var(--coral), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-lbl {
+  font-size: .72rem;
+  color: var(--gray);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ── CATEGORIES ── */
+.categories {
+  padding: 100px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-eye {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.section-title span {
+  font-style: italic;
+  color: var(--coral);
+}
+
+.section-sub {
+  color: var(--gray);
+  font-size: 1rem;
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 60px;
+  font-weight: 300;
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.cat-card {
+  background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 24px;
+  padding: 44px 36px;
+  cursor: pointer;
+  transition: all .35s cubic-bezier(.34,1.56,.64,1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.cat-card.negocios::before { background: linear-gradient(145deg, rgba(255,77,53,.08), transparent); }
+.cat-card.realestate::before { background: linear-gradient(145deg, rgba(0,201,177,.08), transparent); }
+.cat-card.profesionales::before { background: linear-gradient(145deg, rgba(255,209,102,.08), transparent); }
+
+.cat-card:hover { transform: translateY(-8px); border-color: rgba(255,255,255,.14); }
+.cat-card:hover::before { opacity: 1; }
+
+.cat-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 28px;
+}
+
+.cat-card.negocios .cat-icon { background: rgba(255,77,53,.15); }
+.cat-card.realestate .cat-icon { background: rgba(0,201,177,.15); }
+.cat-card.profesionales .cat-icon { background: rgba(255,209,102,.15); }
+
+.cat-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.cat-card.negocios .cat-name { color: var(--coral); }
+.cat-card.realestate .cat-name { color: var(--teal); }
+.cat-card.profesionales .cat-name { color: var(--gold); }
+
+.cat-desc {
+  color: var(--gray);
+  font-size: .88rem;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  font-weight: 300;
+}
+
+.cat-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+.cat-tag {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+  border: 1px solid;
+}
+.cat-card.negocios .cat-tag { border-color: rgba(255,77,53,.3); color: var(--coral); }
+.cat-card.realestate .cat-tag { border-color: rgba(0,201,177,.3); color: var(--teal); }
+.cat-card.profesionales .cat-tag { border-color: rgba(255,209,102,.3); color: var(--gold); }
+
+.cat-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: gap .2s;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.cat-card.negocios .cat-btn { color: var(--coral); }
+.cat-card.realestate .cat-btn { color: var(--teal); }
+.cat-card.profesionales .cat-btn { color: var(--gold); }
+.cat-card:hover .cat-btn { gap: 14px; }
+
+/* ── LISTINGS PANEL ── */
+.listings-panel {
+  display: none;
+  padding: 0 60px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeUp .4s both;
+}
+.listings-panel.active { display: block; }
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.panel-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+}
+.panel-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gray);
+  font-size: .82rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.5);
+  transition: color .2s;
+}
+.panel-back:hover { color: var(--white); }
+
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.listing-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 18px;
+  padding: 28px;
+  transition: all .25s;
+}
+.listing-card:hover {
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.12);
+  transform: translateY(-4px);
+}
+
+.listing-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.listing-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.listing-sub {
+  color: var(--gray);
+  font-size: .82rem;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.listing-contact {
+  font-size: .78rem;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80px 40px;
+  color: var(--gray);
+}
+.empty-icon { font-size: 3rem; margin-bottom: 16px; }
+.empty-title { font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.empty-sub { font-size: .88rem; line-height: 1.6; margin-bottom: 28px; }
+
+/* ── HOW IT WORKS ── */
+.how {
+  padding: 100px 60px;
+  background: rgba(255,255,255,.02);
+  border-top: 1px solid rgba(255,255,255,.05);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.how-inner { max-width: 1200px; margin: 0 auto; }
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+}
+.step { text-align: center; }
+.step-num {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--coral), var(--coral2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  margin: 0 auto 20px;
+}
+.step-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+.step-desc { color: var(--gray); font-size: .85rem; line-height: 1.7; font-weight: 300; }
+
+/* ── PRICING ── */
+.pricing {
+  padding: 100px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.price-card {
+  background: linear-gradient(145deg, rgba(255,77,53,.08), rgba(255,209,102,.04));
+  border: 1px solid rgba(255,77,53,.2);
+  border-radius: 28px;
+  padding: 60px;
+  max-width: 520px;
+  margin: 60px auto 0;
+  position: relative;
+  overflow: hidden;
+}
+.price-card::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,77,53,.15), transparent 70%);
+}
+.price-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--coral), var(--gold));
+  padding: 5px 16px;
+  border-radius: 50px;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.price-amount {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5rem;
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.price-period { color: var(--gray); font-size: .88rem; margin-bottom: 32px; }
+.price-features { list-style: none; margin-bottom: 36px; text-align: left; }
+.price-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  font-size: .88rem;
+  color: rgba(255,255,255,.8);
+}
+.price-features li::before {
+  content: '✦';
+  color: var(--gold);
+  font-size: .7rem;
+  flex-shrink: 0;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 60px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.footer-logo .lm { color: var(--coral); }
+.footer-logo .ls { color: var(--gold); }
+.footer-logo .lg { color: var(--teal); }
+.footer-links { display: flex; gap: 28px; }
+.footer-links a { color: var(--gray); text-decoration: none; font-size: .82rem; transition: color .2s; }
+.footer-links a:hover { color: var(--white); }
+.footer-copy { color: rgba(255,255,255,.2); font-size: .75rem; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 24px 60px; }
+  .categories, .listings-panel, .pricing { padding: 60px 24px; }
+  .how { padding: 60px 24px; }
+  .cat-grid { grid-template-columns: 1fr; }
+  .how-steps { grid-template-columns: 1fr; gap: 32px; }
+  .hero-stats { gap: 28px; flex-wrap: wrap; }
+  footer { padding: 40px 24px; flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="lm">MIAMI</span>
+    <span class="ls">✦</span>
+    <span class="lg">MAGIC</span>
+    <span class="sub">Business</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="https://www.miamimagicapp.com" target="_blank">App ↗</a></li>
+  </ul>
+  <a href="mailto:yyentertainment@outlook.com?subject=Miami Magic Business Listing" class="nav-cta">List My Business</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-badge">🌴 Miami's Premier Business Directory</div>
+  <h1>
+    <span class="line1">GET YOUR BUSINESS</span>
+    <span class="line2">Noticed in Miami</span>
+  </h1>
+  <p class="hero-sub">Connect with thousands of locals and tourists every day. <strong>Miami Magic</strong> puts your business in front of the right people at the right moment.</p>
+  <div class="hero-btns">
+    <a href="mailto:yyentertainment@outlook.com?subject=Miami Magic Business Listing" class="btn-primary">List My Business — $14.99/mo</a>
+    <a href="https://www.miamimagicapp.com" target="_blank" class="btn-secondary">Visit the App ↗</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-num">10K+</div><div class="stat-lbl">Monthly Visitors</div></div>
+    <div class="stat-item"><div class="stat-num">3</div><div class="stat-lbl">Categories</div></div>
+    <div class="stat-item"><div class="stat-num">$19.99</div><div class="stat-lbl">Per Month</div></div>
+    <div class="stat-item"><div class="stat-num">1</div><div class="stat-lbl">Month Free</div></div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+  <div class="section-eye">What We Feature</div>
+  <h2 class="section-title">Choose Your <span>Category</span></h2>
+  <p class="section-sub">Click on any category to browse current listings or contact us to list your business.</p>
+
+  <div class="cat-grid">
+
+    <!-- NEGOCIOS -->
+    <div class="cat-card negocios" onclick="openPanel('negocios')">
+      <div class="cat-icon">💼</div>
+      <div class="cat-name">Business</div>
+      <p class="cat-desc">Restaurants, retail, services, entertainment, and any local business looking to reach Miami's most engaged audience.</p>
+      <div class="cat-tags">
+        <span class="cat-tag">Restaurants</span>
+        <span class="cat-tag">Retail</span>
+        <span class="cat-tag">Services</span>
+        <span class="cat-tag">Entertainment</span>
+      </div>
+      <button class="cat-btn">Explore listings →</button>
+    </div>
+
+    <!-- REAL ESTATE -->
+    <div class="cat-card realestate" onclick="openPanel('realestate')">
+      <div class="cat-icon">🏠</div>
+      <div class="cat-name">Real Estate</div>
+      <p class="cat-desc">Realtors, brokers, property managers, and developers connecting with buyers, sellers, and renters across Miami-Dade.</p>
+      <div class="cat-tags">
+        <span class="cat-tag">Realtors</span>
+        <span class="cat-tag">Brokers</span>
+        <span class="cat-tag">Rentals</span>
+        <span class="cat-tag">Developers</span>
+      </div>
+      <button class="cat-btn">Explore listings →</button>
+    </div>
+
+    <!-- PROFESIONALES -->
+    <div class="cat-card profesionales" onclick="openPanel('profesionales')">
+      <div class="cat-icon">👤</div>
+      <div class="cat-name">Professionals</div>
+      <p class="cat-desc">Doctors, lawyers, accountants, consultants, and any professional service reaching Miami's growing community.</p>
+      <div class="cat-tags">
+        <span class="cat-tag">Medical</span>
+        <span class="cat-tag">Legal</span>
+        <span class="cat-tag">Finance</span>
+        <span class="cat-tag">Consulting</span>
+      </div>
+      <button class="cat-btn">Explore listings →</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- LISTINGS PANELS -->
+<div class="listings-panel" id="panel-negocios">
+  <div class="panel-header">
+    <div class="panel-title" style="color:var(--coral)">💼 Business</div>
+    <button class="panel-back" onclick="closePanel()">← Back to categories</button>
+  </div>
+  <div class="listings-grid">
+    <div class="empty-state" style="grid-column:1/-1">
+      <div class="empty-icon">💼</div>
+      <div class="empty-title">Be the First Business Listed</div>
+      <div class="empty-sub">Get prime visibility in Miami Magic's Negocios directory.<br>Reach thousands of visitors every month.</div>
+      <a href="mailto:yyentertainment@outlook.com?subject=Miami Magic - Negocios Listing" class="btn-primary">List My Business — $14.99/mo</a>
+    </div>
+  </div>
+</div>
+
+<div class="listings-panel" id="panel-realestate">
+  <div class="panel-header">
+    <div class="panel-title" style="color:var(--teal)">🏠 Real Estate</div>
+    <button class="panel-back" onclick="closePanel()">← Back to categories</button>
+  </div>
+  <div class="listings-grid">
+    <div class="empty-state" style="grid-column:1/-1">
+      <div class="empty-icon">🏠</div>
+      <div class="empty-title">Be the First Realtor Listed</div>
+      <div class="empty-sub">Connect with buyers, sellers, and renters actively searching in Miami.<br>Your listings seen by thousands every month.</div>
+      <a href="mailto:yyentertainment@outlook.com?subject=Miami Magic - Real Estate Listing" class="btn-primary">List My Business — $14.99/mo</a>
+    </div>
+  </div>
+</div>
+
+<div class="listings-panel" id="panel-profesionales">
+  <div class="panel-header">
+    <div class="panel-title" style="color:var(--gold)">👤 Professionals</div>
+    <button class="panel-back" onclick="closePanel()">← Back to categories</button>
+  </div>
+  <div class="listings-grid">
+    <div class="empty-state" style="grid-column:1/-1">
+      <div class="empty-icon">👤</div>
+      <div class="empty-title">Be the First Professional Listed</div>
+      <div class="empty-sub">Reach Miami's growing community looking for trusted professionals.<br>Doctors, lawyers, accountants, and more.</div>
+      <a href="mailto:yyentertainment@outlook.com?subject=Miami Magic - Profesionales Listing" class="btn-primary">List My Business — $14.99/mo</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- APP SHOWCASE -->
+<section style="padding:100px 60px;max-width:1200px;margin:0 auto;" id="app-showcase">
+  <div class="section-eye">Powered by Miami Magic</div>
+  <h2 class="section-title">Your Business Inside <span>the #1 Miami App</span></h2>
+  <p class="section-sub">Miami Magic is the complete guide to the Magic City — and your listing appears right alongside the best Miami has to offer.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px">
+
+    <div style="background:rgba(255,77,53,.07);border:1px solid rgba(255,77,53,.15);border-radius:20px;padding:28px 22px;text-align:center">
+      <div style="font-size:2.2rem;margin-bottom:12px">🍽️</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:2px;color:var(--coral);margin-bottom:8px">Restaurants</div>
+      <div style="font-size:.75rem;color:var(--gray);line-height:1.6">44+ curated restaurants from Versailles to KYU Wynwood</div>
+    </div>
+
+    <div style="background:rgba(0,201,177,.07);border:1px solid rgba(0,201,177,.15);border-radius:20px;padding:28px 22px;text-align:center">
+      <div style="font-size:2.2rem;margin-bottom:12px">🏖️</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:2px;color:var(--teal);margin-bottom:8px">Beaches</div>
+      <div style="font-size:.75rem;color:var(--gray);line-height:1.6">South Beach, Crandon Park, Virginia Key and more</div>
+    </div>
+
+    <div style="background:rgba(255,209,102,.07);border:1px solid rgba(255,209,102,.15);border-radius:20px;padding:28px 22px;text-align:center">
+      <div style="font-size:2.2rem;margin-bottom:12px">🎵</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:2px;color:var(--gold);margin-bottom:8px">Concerts</div>
+      <div style="font-size:.75rem;color:var(--gray);line-height:1.6">Kaseya Center, Hard Rock Live, Fillmore Miami Beach</div>
+    </div>
+
+    <div style="background:rgba(155,93,229,.07);border:1px solid rgba(155,93,229,.15);border-radius:20px;padding:28px 22px;text-align:center">
+      <div style="font-size:2.2rem;margin-bottom:12px">🏛️</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:2px;color:#9B5DE5;margin-bottom:8px">Museums</div>
+      <div style="font-size:.75rem;color:var(--gray);line-height:1.6">PAMM, Frost Science, Rubell Museum and more</div>
+    </div>
+
+    <div style="background:rgba(0,139,139,.07);border:1px solid rgba(0,139,139,.15);border-radius:20px;padding:28px 22px;text-align:center">
+      <div style="font-size:2.2rem;margin-bottom:12px">🌙</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:2px;color:#008B8B;margin-bottom:8px">Nightlife</div>
+      <div style="font-size:.75rem;color:var(--gray);line-height:1.6">LIV, Ball & Chain, E11even and Miami's hottest spots</div>
+    </div>
+
+    <div style="background:rgba(232,139,0,.07);border:1px solid rgba(232,139,0,.15);border-radius:20px;padding:28px 22px;text-align:center">
+      <div style="font-size:2.2rem;margin-bottom:12px">🛍️</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:2px;color:#E88B00;margin-bottom:8px">Shopping</div>
+      <div style="font-size:.75rem;color:var(--gray);line-height:1.6">Aventura Mall, Bal Harbour, Design District & more</div>
+    </div>
+
+    <div style="background:rgba(45,158,107,.07);border:1px solid rgba(45,158,107,.15);border-radius:20px;padding:28px 22px;text-align:center">
+      <div style="font-size:2.2rem;margin-bottom:12px">🌳</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:2px;color:#2D9E6B;margin-bottom:8px">Parks</div>
+      <div style="font-size:.75rem;color:var(--gray);line-height:1.6">Larry & Penny Thompson, Amelia Earhart, Matheson Hammock</div>
+    </div>
+
+    <div style="background:rgba(255,77,53,.07);border:1px solid rgba(255,77,53,.15);border-radius:20px;padding:28px 22px;text-align:center">
+      <div style="font-size:2.2rem;margin-bottom:12px">🗺️</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:2px;color:var(--coral);margin-bottom:8px">AI Planner</div>
+      <div style="font-size:.75rem;color:var(--gray);line-height:1.6">Personalized trip planning powered by AI — bilingual EN/ES</div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:44px">
+    <a href="https://www.miamimagicapp.com" target="_blank" class="btn-secondary" style="display:inline-flex;align-items:center;gap:10px">
+      🌴 Explore Miami Magic App ↗
+    </a>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div style="max-width:1200px;margin:0 auto;padding:0 60px"><div style="height:1px;background:rgba(255,255,255,.06)"></div></div>
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="how-inner">
+    <div class="section-eye">Simple Process</div>
+    <h2 class="section-title">How It <span>Works</span></h2>
+    <div class="how-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Contact Us</div>
+        <div class="step-desc">Send us an email with your business info. We'll respond within 24 hours to get you set up.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Get Listed</div>
+        <div class="step-desc">Your business goes live on Miami Magic — both on the web directory and the app used by thousands daily.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Grow</div>
+        <div class="step-desc">Reach locals and tourists actively looking for businesses like yours. Track your visibility and grow your clientele.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-eye">Simple & Transparent</div>
+  <h2 class="section-title">One Plan. <span>Everything Included.</span></h2>
+  <div class="price-card">
+    <div class="price-badge">Most Popular</div>
+    <div style="display:inline-block;background:rgba(255,209,102,.15);border:1px solid rgba(255,209,102,.3);color:var(--gold);padding:5px 14px;border-radius:50px;font-size:.7rem;font-weight:700;letter-spacing:1px;margin-bottom:12px">🔥 Launch Offer — First 10 Clients Only</div>
+    <div class="price-amount">$14.99</div>
+    <div style="color:var(--gray);font-size:.8rem;text-decoration:line-through;margin-bottom:4px">Regular price $14.99/mo</div>
+    <div class="price-period">per month · cancel anytime</div>
+    <ul class="price-features">
+      <li>Featured listing on Miami Magic App</li>
+      <li>Featured listing on Miami Magic Web Directory</li>
+      <li>Business profile with photos & contact info</li>
+      <li>Direct link to your website or social media</li>
+      <li>Visible to 10,000+ monthly visitors</li>
+      <li>First month FREE — no risk</li>
+      <li>Priority placement in your category</li>
+    </ul>
+    <a href="mailto:yyentertainment@outlook.com?subject=Miami Magic Business Listing - $14.99/mo" class="btn-primary" style="display:block;text-align:center">Get Listed Today</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <span class="lm">MIAMI</span>
+    <span class="ls">✦</span>
+    <span class="lg">MAGIC</span>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.miamimagicapp.com" target="_blank">Visit App</a>
+    <a href="https://www.instagram.com/miamimagicapp/" target="_blank">Instagram</a>
+    <a href="https://www.youtube.com/@MiamiMagicApp" target="_blank">YouTube</a>
+    <a href="mailto:yyentertainment@outlook.com">Contact</a>
+  </div>
+  <div class="footer-copy">© 2025 Y&Y Entertainment Corp · All rights reserved</div>
+</footer>
+
+<script>
+function openPanel(cat) {
+  document.querySelectorAll('.listings-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + cat).classList.add('active');
+  document.getElementById('panel-' + cat).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function closePanel() {
+  document.querySelectorAll('.listings-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('categories').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+
+</body>
+</html>

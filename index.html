@@ -328,11 +328,14 @@ nav {
 .cat-card.profesionales .cat-name { color: var(--gold); }
 
 .cat-desc {
-  color: var(--gray);
+  color: rgba(255,255,255,.72);
   font-size: .88rem;
-  line-height: 1.7;
+  line-height: 1.85;
   margin-bottom: 28px;
   font-weight: 300;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  letter-spacing: .3px;
 }
 
 .cat-tags {
@@ -634,7 +637,7 @@ footer {
 }
 
 @media(max-width:768px){
-  .cat-card.profesionales{grid-column:1 / -1!important;max-width:calc(50% - 7px)!important;margin:0 auto!important;}
+  .cat-card.profesionales{grid-column:1 / -1!important;max-width:100%!important;display:flex!important;flex-direction:row!important;align-items:center!important;gap:16px!important;text-align:left!important;}
 }
 </style>
 </head>
@@ -691,7 +694,7 @@ footer {
     <div class="cat-card negocios" onclick="openPanel('negocios')">
       <div class="cat-icon">💼</div>
       <div class="cat-name">Business</div>
-      <p class="cat-desc">Restaurants, retail, services, entertainment, and any local business looking to reach Miami's most engaged audience.</p>
+      <p class="cat-desc">From Brickell to Wynwood — put your business where Miami is already looking.</p>
       <div class="cat-tags">
         <span class="cat-tag">Restaurants</span>
         <span class="cat-tag">Retail</span>
@@ -705,7 +708,7 @@ footer {
     <div class="cat-card realestate" onclick="openPanel('realestate')">
       <div class="cat-icon">🏠</div>
       <div class="cat-name">Real Estate</div>
-      <p class="cat-desc">Realtors, brokers, property managers, and developers connecting with buyers, sellers, and renters across Miami-Dade.</p>
+      <p class="cat-desc">Miami's buyers, sellers and renters are searching right now. Be the name they find first.</p>
       <div class="cat-tags">
         <span class="cat-tag">Realtors</span>
         <span class="cat-tag">Brokers</span>
@@ -719,7 +722,7 @@ footer {
     <div class="cat-card profesionales" onclick="openPanel('profesionales')">
       <div class="cat-icon">👤</div>
       <div class="cat-name">Professionals</div>
-      <p class="cat-desc">Doctors, lawyers, accountants, consultants, and any professional service reaching Miami's growing community.</p>
+      <p class="cat-desc">Trust is built before the first call. Let Miami find you here.</p>
       <div class="cat-tags">
         <span class="cat-tag">Medical</span>
         <span class="cat-tag">Legal</span>

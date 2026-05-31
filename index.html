@@ -612,6 +612,30 @@ footer {
   section{overflow-x:hidden!important;}
   *{max-width:100%!important;box-sizing:border-box!important;}
 }
+
+@media(max-width:768px){
+  .cat-grid{grid-template-columns:repeat(2,1fr)!important;gap:14px!important;}
+  .cat-card{padding:20px 14px!important;}
+}
+
+@media(max-width:768px){
+  .cat-grid{grid-template-columns:repeat(2,1fr)!important;gap:14px!important;justify-items:center!important;}
+  .cat-card{padding:20px 14px!important;width:100%!important;}
+  /* Center the last card (Professionals) if it's alone */
+  div[style*="grid-template-columns:repeat(4,1fr)"]{
+    grid-template-columns:repeat(2,1fr)!important;
+    gap:14px!important;
+    justify-items:center!important;
+  }
+  div[style*="grid-template-columns:repeat(4,1fr)"] > div:last-child:nth-child(odd){
+    grid-column:1 / -1!important;
+    max-width:50%!important;
+  }
+}
+
+@media(max-width:768px){
+  .cat-card.profesionales{grid-column:1 / -1!important;max-width:calc(50% - 7px)!important;margin:0 auto!important;}
+}
 </style>
 </head>
 <body>

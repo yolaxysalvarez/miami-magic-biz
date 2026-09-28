@@ -115,7 +115,13 @@ section{padding:110px 0}
 
 /* ── ejemplos reales (la pieza memorable) ── */
 .ex{background:linear-gradient(180deg,var(--navy) 0%,#0D1A2F 50%,var(--navy) 100%)}
-.ex-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:26px;margin-top:52px;align-items:start}
+.ex-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:52px;align-items:stretch}
+.ex-grid>div{display:flex;flex-direction:column}
+/* cerradas miden igual; al desplegar propiedades solo crece la ficha que se abrió */
+.ex-grid.open{align-items:start}
+.ex-grid .card{flex:1;display:flex;flex-direction:column}
+.ex-grid .biz-bd{flex:1;display:flex;flex-direction:column}
+.ex-grid .card .lks,.ex-grid .biz-bd>.row-lk{margin-top:auto;padding-top:18px}
 .tag{display:inline-flex;align-items:center;gap:8px;font:400 .95rem/1 var(--bebas);letter-spacing:.14em;color:var(--gold);margin-bottom:14px}
 .tag .ic{width:18px;height:18px}
 .card{position:relative;border-radius:22px;border:1px solid rgba(255,209,102,.16);background:linear-gradient(160deg,#13233D,#0A1426);box-shadow:0 30px 60px -34px rgba(0,0,0,.8)}
@@ -125,6 +131,23 @@ section{padding:110px 0}
 .av img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:2px solid #0A1426}
 .nm{font:700 1.5rem/1.15 var(--serif);color:#fff}
 .ttl{font-size:.9rem;color:var(--mist);margin-top:4px}
+.co{font-size:.9rem;font-weight:700;color:var(--gold);margin-top:3px}
+.prof .ct{margin-top:14px}
+.sum{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);color:rgba(253,240,225,.88);font-size:.95rem}
+.lst{display:flex;align-items:center;gap:10px;width:100%;margin-top:18px;padding:14px 16px;border-radius:14px;cursor:pointer;
+ background:rgba(255,255,255,.04);border:1px solid rgba(255,209,102,.22);color:#fff;font:700 .94rem var(--sans);text-align:left;transition:border-color .2s,background .2s}
+.lst:hover{border-color:rgba(255,209,102,.5);background:rgba(255,209,102,.05)}
+.lst .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(0,201,177,.16);flex-shrink:0}
+.lst-t{flex:1}
+.lst-a{font-size:.84rem;color:var(--gold)}
+.lst .chev{width:18px;height:18px;color:var(--gold);transition:transform .25s}
+.lst[aria-expanded="true"] .chev{transform:rotate(180deg)}
+/* la lista se despliega al tocarla: sirve igual con una propiedad o con veinte */
+.props{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.props>.props-in{overflow:hidden;min-height:0}
+.props.open{grid-template-rows:1fr}
+.props-in .prop{margin-top:12px}
+@media(prefers-reduced-motion:reduce){.props,.lst .chev{transition:none}}
 .cv{margin-top:22px;border-top:1px solid var(--line)}
 .cv div{display:grid;grid-template-columns:112px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.92rem}
 .cv dt{color:var(--gold);font-weight:700}
@@ -149,12 +172,12 @@ section{padding:110px 0}
 .now{align-self:flex-start;font-size:.74rem;font-weight:700;color:var(--ink);background:var(--teal);border-radius:6px;padding:3px 8px;margin-top:-2px}
 .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
 .thumbs img{width:100%;aspect-ratio:1;object-fit:cover;object-position:right bottom;border-radius:10px;border:1px solid var(--line)}
-.row-lk{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-size:.9rem;font-weight:700;text-decoration:none;color:var(--gold)}
+.row-lk{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;font-weight:700;text-decoration:none;color:var(--gold)}
 .row-lk .ic{width:16px;height:16px}
 .row-lk:hover{color:var(--gold2)}
 .row-lk + .row-lk{margin-left:22px}
 .biz{overflow:hidden;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));backdrop-filter:blur(10px)}
-.biz-ph{position:relative;height:190px;background:#08101f url('/img/yy-hero.jpg') 30% center/cover}
+.biz-ph{position:relative;height:150px;background:#08101f url('/img/yy-hero.jpg') 30% center/cover}
 .biz-ph::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,16,31,0) 30%,rgba(10,20,38,.95))}
 .logo{position:absolute;left:24px;bottom:-40px;z-index:2;width:92px;height:92px;border-radius:50%;background:#0B1526;box-shadow:0 0 0 1px rgba(255,209,102,.3),0 10px 30px -8px rgba(255,209,102,.35)}
 .logo img{width:100%;height:100%}
@@ -164,10 +187,12 @@ section{padding:110px 0}
 .ct a{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:.92rem;color:rgba(253,240,225,.9)}
 .ct a .ic{width:18px;height:18px;color:var(--gold)}
 .ct a:hover{color:#fff}
-.inv{margin-top:26px;padding:28px 26px;border-radius:22px;border:1px dashed rgba(255,209,102,.35);background:rgba(255,209,102,.035)}
+.inv{margin-top:26px;padding:26px 30px;border-radius:22px;border:1px dashed rgba(255,209,102,.35);background:rgba(255,209,102,.035);display:flex;align-items:center;gap:30px}
+.inv>div{flex:1}
 .inv-h{font:700 1.35rem/1.25 var(--serif);color:#fff}
 .inv-p{margin:8px 0 20px;color:var(--mist);font-size:.95rem}
-.inv .btn{width:100%}
+.inv .btn{flex-shrink:0}
+@media(max-width:760px){.inv{flex-direction:column;align-items:stretch;gap:18px;padding:24px 22px}.inv .btn{width:100%}}
 .ex-note{margin-top:16px;font-size:.8rem;color:var(--mist);line-height:1.55}
 
 /* ── categorías ── */
@@ -288,10 +313,17 @@ footer{border-top:1px solid var(--line);padding:46px 0 40px;background:var(--ink
     <article class="card prof">
      <div class="prof-hd">
       <div class="av"><img src="/img/yoly-realtor.jpg" alt="Yolaxys Alvarez" width="78" height="78" loading="lazy"></div>
-      <div><h3 class="nm">Yolaxys Alvarez</h3><p class="ttl">Realtor · Residencial y Comercial</p></div>
+      <div><h3 class="nm">Yolaxys Alvarez</h3><p class="ttl">Realtor · Residencial y Comercial</p><p class="co">Partnership Realty</p></div>
      </div>
-     <dl class="cv"><div><dt>Oficina</dt><dd>Partnership Realty</dd></div><div><dt>2023–hoy</dt><dd>Realtor, Partnership Realty</dd></div><div><dt>Licencia</dt><dd>Florida Sales Associate, activa</dd></div><div><dt>Zonas</dt><dd>Miami-Dade y Monroe</dd></div><div><dt>Idiomas</dt><dd>Español e inglés</dd></div></dl>
-     <p class="sublbl"><span class="dot"></span>1 propiedad en renta</p>
+     <p class="sum">Cinco años en el mercado residencial y comercial, en los condados de Monroe, Miami-Dade, Broward y Palm Beach.</p>
+     <div class="ct">
+      <a href="https://www.instagram.com/alvarez_castelao/" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg> @alvarez_castelao</a>
+      <a href="tel:+17866094023"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.2 3.5h3.3l1.7 4.3-2.2 1.4a11.4 11.4 0 0 0 6.8 6.8l1.4-2.2 4.3 1.7v3.3a1.8 1.8 0 0 1-1.9 1.8A16.9 16.9 0 0 1 3.4 5.4a1.8 1.8 0 0 1 1.8-1.9z"/></svg> (786) 609-4023</a>
+     </div>
+     <button class="lst" type="button" aria-expanded="false" aria-controls="props-bz1" data-show="Ver" data-hide="Ocultar">
+      <span class="dot"></span><span class="lst-t">1 propiedad en renta</span><span class="lst-a">Ver</span><svg class="ic chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+     </button>
+     <div class="props" id="props-bz1"><div class="props-in">
      <a class="prop" href="https://www.miamimagicapp.com/?item=bz2&amp;type=biz" target="_blank" rel="noopener" aria-label="Abrir propiedad en la app">
       <div class="prop-ph"><img src="/img/renta-smh-1.jpg" alt="Efficiency en renta, South Miami Heights" loading="lazy" width="640" height="1138"></div>
       <div class="prop-bd">
@@ -303,7 +335,8 @@ footer{border-top:1px solid var(--line);padding:46px 0 40px;background:var(--ink
        <div class="thumbs"><img src="/img/renta-smh-2.jpg" alt="" loading="lazy"><img src="/img/renta-smh-3.jpg" alt="" loading="lazy"><img src="/img/renta-smh-4.jpg" alt="" loading="lazy"></div>
       </div>
      </a>
-     <div class="lks"><a class="row-lk" href="https://www.miamimagicapp.com/?item=bz1&amp;type=biz" target="_blank" rel="noopener">Abrir perfil en la app <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8.5 7H17v8.5"/></svg></a><a class="row-lk" href="https://www.miamimagicapp.com/?item=bz2&amp;type=biz" target="_blank" rel="noopener">Abrir propiedad en la app <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8.5 7H17v8.5"/></svg></a></div>
+     </div></div>
+     <div class="lks"><a class="row-lk" href="https://www.miamimagicapp.com/?item=bz1&amp;type=biz" target="_blank" rel="noopener">Abrir perfil en la app <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8.5 7H17v8.5"/></svg></a></div>
     </article>
    </div>
    <div>
@@ -321,15 +354,13 @@ footer{border-top:1px solid var(--line);padding:46px 0 40px;background:var(--ink
       <a class="row-lk" href="https://www.miamimagicapp.com/?item=yy1&amp;type=biz" target="_blank" rel="noopener">Abrir en la app <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8.5 7H17v8.5"/></svg></a>
      </div>
     </article>
-    <aside class="inv">
-     <p class="inv-h">Tu ficha puede ser la siguiente.</p>
-     <p class="inv-p">El mismo formato para tu negocio: fotos, contacto, un tip local y un enlace que la abre en la app.</p>
-     <a class="btn btn-c" href="https://buy.stripe.com/dRm14mbAHe9O7GbgyAa3u06" rel="noopener">Empieza tus 30 días gratis</a>
-     <p class="ex-note">Los dos ejemplos son de la casa: el perfil inmobiliario de la editora y el estudio de foto y video de su familia.</p>
-    </aside>
    </div>
   </div>
-</div>
+  <aside class="inv">
+   <div><p class="inv-h">Tu ficha puede ser la siguiente.</p><p class="inv-p">El mismo formato para tu negocio: fotos, contacto, un tip local y un enlace que la abre en la app.</p><p class="ex-note">Los dos ejemplos son de la casa: el perfil inmobiliario de la editora y el estudio de foto y video de su familia.</p></div>
+   <a class="btn btn-c" href="https://buy.stripe.com/dRm14mbAHe9O7GbgyAa3u06" rel="noopener">Empieza tus 30 días gratis</a>
+  </aside>
+ </div>
 </section>
 
 <section id="categorias">
@@ -387,6 +418,9 @@ footer{border-top:1px solid var(--line);padding:46px 0 40px;background:var(--ink
 </footer>
 
 <script>
+document.querySelectorAll('.lst').forEach(function(b){b.addEventListener('click',function(){
+ var o=b.getAttribute('aria-expanded')!=='true',p=document.getElementById(b.getAttribute('aria-controls'));
+ b.setAttribute('aria-expanded',o);var g=b.closest('.ex-grid');if(g)g.classList.toggle('open',o);p.classList.toggle('open',o);b.querySelector('.lst-a').textContent=o?b.dataset.hide:b.dataset.show;});});
 (function(){var h=document.getElementById('top');function f(){h.classList.toggle('solid',window.scrollY>40);}f();window.addEventListener('scroll',f,{passive:true});})();
 </script>
 </body>

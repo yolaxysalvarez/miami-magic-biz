@@ -236,9 +236,9 @@ function mmSend(){
   if(desc.length<20){ return fail(tx('Tell us a little more about your business — at least a sentence or two.','Cuéntanos un poco más de tu negocio — al menos una o dos frases.')); }
 
   var payload={
-    biz_name:biz, category:cat, biz_type:val('fType'), address:val('fAddr'), hours:val('fHours'),
-    website:val('fWeb'), instagram:val('fIg'), phone:val('fPhone'), booking:val('fBook'),
-    description:desc+'\n\n[Invitado · ficha gratis] Permiso de fotos: '+(document.getElementById('fPerm').checked?'Sí':'No'), tip:val('fTip'), contact_name:name, email:email, form_lang:lang
+    business_name:biz, category:cat, business_type:val('fType'), address:val('fAddr'), hours:val('fHours'),
+    website:val('fWeb'), instagram:val('fIg'), phone:val('fPhone'), booking_link:val('fBook'),
+    description:desc+'\n\n[Invitado · ficha gratis] Permiso de fotos: '+(document.getElementById('fPerm').checked?'Sí':'No'), insider_tip:val('fTip'), contact_name:name, contact_email:email, form_lang:lang
   };
 
   btn.disabled=true;

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Descarga Miami Magic · Donde vive Miami</title>
+<meta name="description" content="Descarga Miami Magic, la guía bilingüe de Miami: restaurantes, playas, conciertos y mapa. Gratis en App Store y Google Play.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FDF6EA">
+<meta property="og:title" content="Descarga Miami Magic">
+<meta property="og:description" content="La guía bilingüe de Miami, gratis en App Store y Google Play.">
+<meta property="og:image" content="https://www.miamimagicdirectory.com/img/og-directory-es.jpg">
+<link rel="icon" type="image/png" href="/img/palm.png">
+<script>
+/* Manda a cada teléfono a su tienda, sin pasos intermedios */
+(function(){
+  var IOS='https://apps.apple.com/app/id6808848681';
+  var PLAY='https://play.google.com/store/apps/details?id=com.yyentertainment.miamimagic';
+  var ua=navigator.userAgent||'';
+  var isIOS=/iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints>1);
+  var isAndroid=/Android/i.test(ua);
+  if(isIOS){ location.replace(IOS); }
+  else if(isAndroid){ location.replace(PLAY); }
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700;9..40,800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#FDF6EA;color:#0B1526;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px 24px;-webkit-font-smoothing:antialiased}
+.w{max-width:440px}
+.badge{width:96px;height:96px;border-radius:24px;background:#FF4D35;display:grid;place-items:center;margin:0 auto;box-shadow:0 20px 40px -20px rgba(255,77,53,.6)}
+.badge img{width:44px}
+h1{font:700 40px/1.1 'Playfair Display',Georgia,serif;margin-top:28px}
+p{font-size:17px;line-height:1.5;color:#3A4456;margin-top:12px}
+.stores{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
+.stores a{display:block;height:48px;overflow:hidden;border-radius:10px}
+.stores img{height:48px;width:auto}
+.stores a.gp{width:162px}
+.stores a.gp img{height:70px;margin:-11px 0 0 -11px;max-width:none}
+.u{margin-top:28px;font-size:14px;font-weight:800;letter-spacing:.06em;color:#FF4D35}
+.u a{color:inherit;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="badge"><img src="/img/palm.png" alt=""></div>
+  <h1>Donde vive Miami.</h1>
+  <p>Descarga Miami Magic, la guía bilingüe de Miami. Es gratis.</p>
+  <div class="stores">
+    <a href="https://apps.apple.com/app/id6808848681"><img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/es-mx?size=250x83" alt="Descárgalo en el App Store" onerror="this.onerror=null;this.src='https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83'"></a>
+    <a class="gp" href="https://play.google.com/store/apps/details?id=com.yyentertainment.miamimagic"><img src="https://play.google.com/intl/es-419/badges/static/images/badges/es-419_badge_web_generic.png" alt="Disponible en Google Play"></a>
+  </div>
+  <div class="u"><a href="https://www.miamimagicapp.com">MIAMIMAGICAPP.COM</a></div>
+</div>
+</body>
+</html>
